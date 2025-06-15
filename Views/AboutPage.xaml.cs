@@ -1,4 +1,4 @@
-namespace PinedaLNotasApp;
+namespace PinedaLNotasApp.Views;
 
 public partial class AboutPage : ContentPage
 {

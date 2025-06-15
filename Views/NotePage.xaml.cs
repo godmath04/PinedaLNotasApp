@@ -1,4 +1,4 @@
-namespace PinedaLNotasApp;
+namespace PinedaLNotasApp.Views;
 
 public partial class NotePage : ContentPage
 {
@@ -15,7 +15,7 @@ public partial class NotePage : ContentPage
 		File.WriteAllText(_fileName, txtEditor.Text);
 	}
 
-	private void btnBorrar(Object sender, EventArgs e) {
+	private void btnEliminar(Object sender, EventArgs e) {
 		if(File.Exists(_fileName))
 			File.Delete(_fileName);
 
