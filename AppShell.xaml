@@ -7,9 +7,17 @@
     Shell.FlyoutBehavior="Disabled"
     Title="PinedaLNotasApp">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <ShellContent
+            Title="Notas"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Icon="{OnPlatform 'icononotas.png'}"
+            />
 
+        <ShellContent
+            Title="About"
+            ContentTemplate="{DataTemplate local:AboutPage}" 
+            Icon="{OnPlatform 'iconoabout.png'}"
+            />
+    </TabBar>
 </Shell>
