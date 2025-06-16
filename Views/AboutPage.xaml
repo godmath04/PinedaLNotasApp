@@ -4,19 +4,22 @@
              xmlns:models="clr-namespace:PinedaLNotasApp.Models"
              x:Class="PinedaLNotasApp.Views.AboutPage"
              x:DataType="models:About"
-             Title="AboutPage">
+             Title="Sobre miii:)">
     <ContentPage.BindingContext>
         <models:About />
     </ContentPage.BindingContext>
     <VerticalStackLayout Spacing="10" Margin="10">
-        <HorizontalStackLayout Spacing="10">
-            <Image Source="dotnet_bot.png"
-                   SemanticProperties.Description="The dot net bot waving hello!"
-                   HeightRequest="64" />
-            <Label FontSize="22" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" />
-            <Label FontSize="22" Text="{Binding Version}" VerticalOptions="End" />
-        </HorizontalStackLayout>
+        <Image Source="{Binding Icono}" HeightRequest="100" WidthRequest="100" />
 
-        <Label Text="{Binding Message}" />
+        <Label Text="{Binding Nombre}"
+               FontAttributes="Bold"
+               FontSize="24"
+               HorizontalOptions="Center" />
+
+        <Label Text="{Binding Descripcion}"
+               FontSize="18"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               LineBreakMode="WordWrap" />
     </VerticalStackLayout>
 </ContentPage>

@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:PinedaLNotasApp.Models"
              x:Class="PinedaLNotasApp.Views.AllNotesPage"
-             Title="Mis notas">
+             Title="Luis Pineda: Mis notas">
     <!-- Anadir el item a la tool bart-->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="Add_Clicked" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
+        <ToolbarItem Text="Anadir una nueva nota" Clicked="Add_Clicked" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
     </ContentPage.ToolbarItems>
 
     <!-- Mostrar las notas como lista -->

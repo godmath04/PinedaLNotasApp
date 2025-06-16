@@ -9,7 +9,8 @@ public partial class NotePage : ContentPage
         InitializeComponent();
 
         string appDataPath = FileSystem.AppDataDirectory;
-        _fileName = Path.Combine(appDataPath, "notas.txt");
+        _fileName = Path.Combine(appDataPath, $"{DateTime.Now:yyyyMMdd_HHmmss}.notas.txt");
+
 
         LoadNote(_fileName);
     }

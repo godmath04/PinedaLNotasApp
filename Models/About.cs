@@ -8,10 +8,10 @@ namespace PinedaLNotasApp.Models
 {
     internal class About
     {
-        public string Title => AppInfo.Name;
-        public string Version => AppInfo.VersionString;
+        public string Nombre => "Luis Elian Pineda ";
+        public string Descripcion => "Lo que mueve mi vida es la musica, la politica y el software";
 
-        public string Message => "Aplicacion elaborada por Luis PIneda";
+        public string Icono => "pinguino.png";
 
     }
 }
