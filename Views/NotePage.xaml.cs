@@ -1,25 +1,57 @@
 namespace PinedaLNotasApp.Views;
-
+[QueryProperty(nameof(ItemId), nameof(ItemId))]
 public partial class NotePage : ContentPage
 {
-	string _fileName = Path.Combine(FileSystem.AppDataDirectory, "notas.txt");
-	public NotePage()
-	{
-		InitializeComponent();
+    private string _fileName;
 
-		if(File.Exists(_fileName))
-			txtEditor.Text = File.ReadAllText(_fileName);
-	}
+    public NotePage()
+    {
+        InitializeComponent();
 
-	private void btnGuardar(Object sender, EventArgs e) { 
-		File.WriteAllText(_fileName, txtEditor.Text);
-	}
+        string appDataPath = FileSystem.AppDataDirectory;
+        _fileName = Path.Combine(appDataPath, "notas.txt");
 
-	private void btnEliminar(Object sender, EventArgs e) {
-		if(File.Exists(_fileName))
-			File.Delete(_fileName);
+        LoadNote(_fileName);
+    }
 
-		txtEditor.Text = string.Empty;
+    private void LoadNote(string fileName)
+    {
+        var noteModel = new Models.Note
+        {
+            FileName = fileName
+        };
 
-	}
+        if (File.Exists(fileName))
+        {
+            noteModel.Date = File.GetCreationTime(fileName);
+            noteModel.Text = File.ReadAllText(fileName);
+        }
+
+        BindingContext = noteModel;
+    }
+
+    public string ItemId
+    {
+        set { LoadNote(value); }
+    }
+
+    private async void btnGuardar(object sender, EventArgs e)
+    {
+        if (BindingContext is Models.Note note)
+            File.WriteAllText(note.FileName, txtEditor.Text);
+
+        await Shell.Current.GoToAsync("..");
+    }
+
+    private async void btnEliminar(object sender, EventArgs e)
+    {
+        if (BindingContext is Models.Note note)
+        {
+            // Delete the file.
+            if (File.Exists(note.FileName))
+                File.Delete(note.FileName);
+        }
+
+        await Shell.Current.GoToAsync("..");
+    }
 }
